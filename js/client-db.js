@@ -45,8 +45,10 @@
 		
 		var obj = callback;
 		var key = Object.keys(obj)[0];
-		if(typeof(callback[key])=="function")
-			callback[key]();
+		$(document).ready(function(){
+			if(typeof(callback[key])=="function")
+				callback[key]();
+		});
 	}
 	
 	function fireAuthCallbacks()
@@ -79,6 +81,6 @@
 	registerAuthCallback({client_setupHeader:function(){
 		if(JCL_firebase.is_auth())
 		{
-}
+		}
 	}});
 	
