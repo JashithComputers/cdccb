@@ -49,7 +49,7 @@ if (($handle = fopen($assetsCSVFile, "r")) !== FALSE) {
 		}
 
 		$assetByBranchData[$asset_index] = $assetRowMap;
-		$allBranchDataMap[$asset_index][$asset_branch_id] = $assetRowMap;
+		$allBranchDataMap[$asset_branch_id][$asset_index] = $assetRowMap;
 
 		file_put_contents($assetsByBranchFile, json_encode($assetByBranchData));
 
