@@ -2,6 +2,7 @@
 require_once 'config.php';
 require_once 'lib.php';
 
+$branchInfoCSVFile = __BASE_PATH . DS . "asset" . DS . "branch_info.csv";
 $assetsCSVFile = __BASE_PATH . DS . "asset" . DS . "assets.csv";
 
 echo $assetsCSVFile;
@@ -12,6 +13,30 @@ if(!file_exists($assetsBuildDir))
 {
 	mkdir($assetsBuildDir);
 }
+
+$branchInfoMapAr = array();
+$isHeader = true;
+if (($handle = fopen($branchInfoCSVFile, "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        array_walk($data,"trim");
+        array_walk($data,"cleanArrayNode");
+        //print_r($data);
+	 if($isHeader)
+        {
+                $isHeader = false;
+                $csvKeys = $data;
+        }
+        else{
+                $branchRowMap = array_combine($csvKeys, $data);
+		//print_r($branchRowMap);
+		$branchId = $branchRowMap['CODE'];
+		$branchInfoMapAr[$branchId] = $branchRowMap;
+	}
+    }
+}
+
+//print_r($branchInfoMapAr);
+
 
 $availableBranchMapAr = array();
 $allBranchDataMap = array();
@@ -33,6 +58,11 @@ if (($handle = fopen($assetsCSVFile, "r")) !== FALSE) {
 		$asset_index = $assetRowMap['INDEX'];	
 		$asset_branch_id = $assetRowMap['BRANCH_ID'];
 		$asset_branch_name = $assetRowMap['BRANCH_NAME'];
+
+		if(isset($branchInfoMapAr[$asset_branch_id]))
+		{
+			$assetRowMap['BRANCH_INFO_MAP'] = $branchInfoMapAr[$asset_branch_id];
+		}
 
 		if($asset_branch_id=="") $asset_branch_id = "UNKNOWN";
 		$assetsByBranchFile = $assetsBuildDir . DS . "asset_by_branch_".$asset_branch_id.".json";

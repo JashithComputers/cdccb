@@ -1,5 +1,5 @@
-CODE,BRANCH NAME,MAIL-ID,PHONE NO.,MANAGER NAME,CELL NUMBER,BRANCH ADDRESS
-11200,HEAD OFFICE,"cdccbho@gmail.com, Cudbank@yahoomail.com",04142 295911,Vasantha,9842405824,"Head Office                   No.1 Beach Road, Cuddalore - 607 001 "
+CODE,BRANCH_NAME,MAIL_ID,PHONE_NO,MANAGER_NAME,CELL_NUMBER,BRANCH_ADDRESS
+11200,HEAD OFFICE,"cdccb.edp@gmail.com",04142 295911,Vasantha,9842405824,"Head Office, No.1 Beach Road, Cuddalore - 607 001"
 11202,BHUVANAGIRI,cdccbbhubank@gmail.com,04144 241389,Vijaya,9345253326,"Bhuvanagiri Branch No.11, Cuddalore Main Road, Bhuvanagiri  - 608 601 Chidambaram T.K."
 11203,ERAIYUR,cdccberibank@gmail.com,04143 222278,P.Anthonysamy,8903192335,Eraiyur Branch Pennadam R.S. Eraiyur - 606111 Titakudi T.K.
 11207,KATTUMANNAR KOIL,cdccbkmkbank@gmail.com,04144 262051,K.Murugan,9994532739,"Kattumanar Koil Branch No.44, Katcherry Road, K.M.Koil -608 300"
